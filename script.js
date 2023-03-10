@@ -15,22 +15,35 @@ function createGrid(resolution) {
     pixel.style.height = `${pixelSize}px`;
     grid.appendChild(pixel);
   }
+  enablePixels();
+}
+function clearGrid() {
+  let child = grid.lastElementChild;
+  while (child) {
+    grid.removeChild(child);
+    child = grid.lastElementChild;
+  }
+}
+function enablePixels() {
+  const pixels = [...document.querySelectorAll('.pixel')];
+  pixels.forEach(pixel => {
+    pixel.addEventListener('mouseover', () => {
+      pixel.classList.add('colored');
+    });
+  });
 }
 
 let grid = document.querySelector('.grid');
-let gridSize = 100;
+const gridSizeButton = document.querySelector('#grid-size');
+let defaultGridSize = 16;
 
-createGrid(gridSize);
+createGrid(defaultGridSize);
 
 //Add an event listener to pixels, waiting for a hover event
 //upon a hover event, color in the pixel. 
-
-const pixels = [...document.querySelectorAll('.pixel')];
-pixels.forEach(pixel => {
-  pixel.addEventListener('mouseover', () => {
-    pixel.classList.add('colored');
-  });
-  /*pixel.addEventListener('mouseout', () => {
-    pixel.classList.remove('colored');
-  });*/
+gridSizeButton.addEventListener('click', () => {
+  let newSize = prompt('Enter New Size', 16);
+  clearGrid();
+  createGrid(newSize);
 });
+
