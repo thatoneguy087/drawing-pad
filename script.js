@@ -18,6 +18,19 @@ function createGrid(resolution) {
 }
 
 let grid = document.querySelector('.grid');
-let gridSize = 16;
+let gridSize = 100;
 
-createGrid(16);
+createGrid(gridSize);
+
+//Add an event listener to pixels, waiting for a hover event
+//upon a hover event, color in the pixel. 
+
+const pixels = [...document.querySelectorAll('.pixel')];
+pixels.forEach(pixel => {
+  pixel.addEventListener('mouseover', () => {
+    pixel.classList.add('colored');
+  });
+  /*pixel.addEventListener('mouseout', () => {
+    pixel.classList.remove('colored');
+  });*/
+});
