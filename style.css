@@ -1,0 +1,11 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  box-sizing: border-box;
+}
+
+.grid {
+  height: 800px;
+  width: 800px;
+}
