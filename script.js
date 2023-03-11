@@ -17,7 +17,7 @@ function createGrid(resolution) {
   }
   enablePixels();
 }
-function clearGrid() {
+function resetGrid() {
   let child = grid.lastElementChild;
   while (child) {
     grid.removeChild(child);
@@ -53,7 +53,7 @@ gridSizeButton.addEventListener('click', () => {
   if(newSize === null) {
     return;
   } else if(newSizeInt && (newSize <= 100 && newSize > 0)) {
-    clearGrid();
+    resetGrid();
     createGrid(newSize);
   } else {
     alert('not valid!');
