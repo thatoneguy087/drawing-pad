@@ -42,8 +42,14 @@ createGrid(defaultGridSize);
 //Add an event listener to pixels, waiting for a hover event
 //upon a hover event, color in the pixel. 
 gridSizeButton.addEventListener('click', () => {
-  let newSize = prompt('Enter New Size', 16);
-  clearGrid();
-  createGrid(newSize);
+  const newSize = prompt('Enter New Size', 16);
+  if(newSize === null) {
+    return;
+  } else if(newSize <= 100 && newSize > 0) {
+    clearGrid();
+    createGrid(newSize);
+  } else {
+    alert('not valid!');
+  }
 });
 
