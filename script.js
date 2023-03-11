@@ -24,6 +24,10 @@ function resetGrid() {
     child = grid.lastElementChild;
   }
 }
+function clearGrid() {
+  const pixels = [...document.querySelectorAll('.pixel')];
+  pixels.forEach(pixel => pixel.classList.remove('colored'));
+}
 function enablePixels() {
   const pixels = [...document.querySelectorAll('.pixel')];
   pixels.forEach(pixel => {
@@ -41,12 +45,14 @@ function isInt(num) {
 
 let grid = document.querySelector('.grid');
 const gridSizeButton = document.querySelector('#grid-size');
+const clearGridButton = document.querySelector('#clear-grid');
 let defaultGridSize = 16;
 
 createGrid(defaultGridSize);
 
 //Add an event listener to pixels, waiting for a hover event
 //upon a hover event, color in the pixel. 
+clearGridButton.addEventListener('click', clearGrid);
 gridSizeButton.addEventListener('click', () => {
   const newSize = prompt('Enter New Size', 16);
   const newSizeInt = isInt(newSize);
