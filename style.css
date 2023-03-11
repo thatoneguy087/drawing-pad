@@ -5,6 +5,18 @@
   box-sizing: border-box;
 }
 
+.main-container {
+  margin: 0 auto;
+  width: 1000px;
+  display: flex;
+  justify-content: space-between;
+}
+
+.side-bar {
+  display: flex;
+  flex-direction: column;
+}
+
 .grid {
   box-sizing: content-box;
   height: 800px;
