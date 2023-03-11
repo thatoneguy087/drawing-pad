@@ -32,6 +32,12 @@ function enablePixels() {
     });
   });
 }
+function isInt(num) {
+  if(num == Math.floor(num)) {
+    return true;
+  }
+  return false;
+}
 
 let grid = document.querySelector('.grid');
 const gridSizeButton = document.querySelector('#grid-size');
@@ -43,9 +49,10 @@ createGrid(defaultGridSize);
 //upon a hover event, color in the pixel. 
 gridSizeButton.addEventListener('click', () => {
   const newSize = prompt('Enter New Size', 16);
+  const newSizeInt = isInt(newSize);
   if(newSize === null) {
     return;
-  } else if(newSize <= 100 && newSize > 0) {
+  } else if(newSizeInt && (newSize <= 100 && newSize > 0)) {
     clearGrid();
     createGrid(newSize);
   } else {
