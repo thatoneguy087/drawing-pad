@@ -6,7 +6,7 @@
   //find out how many pixels we need by multiplying the grid dimensions together
   //add new pixels to the grid
 function createGrid(resolution) {
-  const pixelSize = 800/resolution;
+  const pixelSize = 600/resolution;
   const totalPixels = Math.pow(resolution, 2);
   for(let i = 0; i < totalPixels; i ++) {
     let pixel = document.createElement('div');

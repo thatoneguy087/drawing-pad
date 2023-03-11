@@ -7,11 +7,16 @@
 
 .main-container {
   margin: 0 auto;
-  width: 1000px;
+  width: 800px;
 }
 
 .content {
   display: flex;
+}
+
+.header {
+  margin: 4px 0 32px;
+  font-size: 32px;
 }
 
 .side-bar {
@@ -24,8 +29,8 @@
 
 .grid {
   box-sizing: content-box;
-  height: 800px;
-  width: 800px;
+  height: 600px;
+  width: 600px;
   background-color: #d3d3d3;
   border: 1px solid #000;
   display: flex;
