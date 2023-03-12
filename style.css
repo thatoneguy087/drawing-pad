@@ -4,7 +4,9 @@
   font-family: Verdana, Geneva, Tahoma, sans-serif;
   box-sizing: border-box;
 }
-
+body {
+  background-color: #f7f7ff;
+}
 .main-container {
   margin: 0 auto;
   width: 800px;
@@ -17,6 +19,7 @@
 .header {
   margin: 4px 0 32px;
   font-size: 32px;
+  color: #ea526f;
 }
 
 .side-bar {
@@ -27,21 +30,24 @@
   gap: 32px;
 }
 
+.side-bar button {
+  color: #ea526f;
+  border: 1px solid #070600;
+}
+
 .grid {
   box-sizing: content-box;
   height: 600px;
   width: 600px;
-  background-color: #d3d3d3;
-  border: 1px solid #000;
+  border: 1px solid #070600;
   display: flex;
   flex-wrap: wrap;
 }
 
 .pixel{
-  background-color: #fff;
-  border: 1px solid #0000001A;
+  border: 1px solid #07060011;
 }
 
 .colored {
-  background-color: #000;
+  background-color: #070600;
 }
