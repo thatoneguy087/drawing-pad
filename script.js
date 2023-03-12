@@ -62,7 +62,7 @@ gridSizeButton.addEventListener('click', () => {
     resetGrid();
     createGrid(newSize);
   } else {
-    alert('not valid!');
+    alert('Grid must be a whole number between 1 and 100.');
   }
 });
 
