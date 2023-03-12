@@ -9,7 +9,6 @@ function createGrid(resolution) {
     pixel.style.height = `${pixelSize}px`;
     grid.appendChild(pixel);
   }
-  enablePixels();
 }
 
 //completely resets the grid, getting rid of all the pixels, so that a new grid can be made to fill in its place
@@ -27,17 +26,16 @@ function clearGrid() {
   pixels.forEach(pixel => pixel.style.backgroundColor = '');
 }
 
-//allows pixels to be filled in with the appropriate color
-function enablePixels() {
-  const pixels = [...document.querySelectorAll('.pixel')];
+function draw(e) {
+  const pixels = document.querySelectorAll('.pixel');
   pixels.forEach(pixel => {
-    pixel.addEventListener('mouseover', () => {
+    if(e.target === pixel) {
       if(color === 'random') {
-        pixel.style.backgroundColor = randomRGBColor();
+        e.target.style.backgroundColor = randomRGBColor();
       } else {
-        pixel.style.backgroundColor = color;
+        e.target.style.backgroundColor = color;
       }
-    });
+    }
   });
 }
 
@@ -65,6 +63,19 @@ const colorOptions = document.querySelectorAll('.color-options button')
 let defaultGridSize = 16;
 let color = '#070600';
 createGrid(defaultGridSize);
+
+
+grid.addEventListener('mousedown', e => {
+        if(color === 'random') {
+        e.target.style.backgroundColor = randomRGBColor();
+      } else {
+        e.target.style.backgroundColor = color;
+      }
+  grid.addEventListener('mouseover', draw);
+});
+window.addEventListener('mouseup', () => {
+  grid.removeEventListener('mouseover', draw);
+});
 
 //Event listeners to our color options to change our current color
 colorOptions.forEach(option => {
