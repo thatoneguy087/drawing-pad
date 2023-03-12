@@ -53,10 +53,20 @@ function randomRGBColor() {
 let grid = document.querySelector('.grid');
 const gridSizeButton = document.querySelector('#grid-size');
 const clearGridButton = document.querySelector('#clear-grid');
+const colorOptions = document.querySelectorAll('.color-options button')
+console.log(colorOptions);
 let defaultGridSize = 16;
 
 createGrid(defaultGridSize);
 
+colorOptions.forEach(option => {
+  option.addEventListener('click', () => {
+    colorOptions.forEach(option => {
+      option.classList.remove('active');
+    });
+    option.classList.add('active');
+  });
+});
 //Add an event listener to pixels, waiting for a hover event
 //upon a hover event, color in the pixel. 
 clearGridButton.addEventListener('click', clearGrid);
