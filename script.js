@@ -1,10 +1,4 @@
-//create reference to grid
-//establish base size of 16 pixels for the grid
-//create function to create grid based on grid size
-  //clear current grid
-  //pixel size will be grid size(800) divided by resolution(16) in the initial case, our grid will be 16 x 16
-  //find out how many pixels we need by multiplying the grid dimensions together
-  //add new pixels to the grid
+//function to create the grid. Fills the grid up with the appropriate number of pixels based on our pixel size
 function createGrid(resolution) {
   const pixelSize = 600/resolution;
   const totalPixels = Math.pow(resolution, 2);
@@ -17,6 +11,8 @@ function createGrid(resolution) {
   }
   enablePixels();
 }
+
+//completely resets the grid, getting rid of all the pixels, so that a new grid can be made to fill in its place
 function resetGrid() {
   let child = grid.lastElementChild;
   while (child) {
@@ -24,10 +20,14 @@ function resetGrid() {
     child = grid.lastElementChild;
   }
 }
+
+//erases pixel colors
 function clearGrid() {
   const pixels = [...document.querySelectorAll('.pixel')];
   pixels.forEach(pixel => pixel.style.backgroundColor = '');
 }
+
+//allows pixels to be filled in with the appropriate color
 function enablePixels() {
   const pixels = [...document.querySelectorAll('.pixel')];
   pixels.forEach(pixel => {
@@ -40,6 +40,8 @@ function enablePixels() {
     });
   });
 }
+
+//check to see if a given number is an integer or not
 function isInt(num) {
   if(num == Math.floor(num)) {
     return true;
@@ -47,6 +49,7 @@ function isInt(num) {
   return false;
 }
 
+//generates a random RGB color and gives us a value we can use in CSS
 function randomRGBColor() {
   let r = Math.floor(Math.random() * 256);
   let g = Math.floor(Math.random() * 256);
@@ -54,15 +57,16 @@ function randomRGBColor() {
   return `rgb(${r}, ${g}, ${b})`
 }
 
-let grid = document.querySelector('.grid');
+//UI declarations and setting initial values for our grid and color
+const grid = document.querySelector('.grid');
 const gridSizeButton = document.querySelector('#grid-size');
 const clearGridButton = document.querySelector('#clear-grid');
 const colorOptions = document.querySelectorAll('.color-options button')
 let defaultGridSize = 16;
 let color = '#070600';
-
 createGrid(defaultGridSize);
 
+//Event listeners to our color options to change our current color
 colorOptions.forEach(option => {
   option.addEventListener('click', () => {
     colorOptions.forEach(option => {
@@ -80,9 +84,11 @@ colorOptions.forEach(option => {
     }
   });
 });
-//Add an event listener to pixels, waiting for a hover event
-//upon a hover event, color in the pixel. 
+
+//Clears grid, erasing the pixel colors
 clearGridButton.addEventListener('click', clearGrid);
+
+//resize our grid with a valid number. This will reset the grid.
 gridSizeButton.addEventListener('click', () => {
   const newSize = prompt('Enter New Size', 16);
   const newSizeInt = isInt(newSize);
