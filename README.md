@@ -1,6 +1,6 @@
-# etch-a-sketch-pad
-Drawing-pad project done for TOP 
-<br>
+# Drawing pad
+Drawing-pad project done for TOP. Similar to an Etch-a-sketch.
+
 Neat little project centered around DOM manipulation. It was also a great opportunity to brush up on past knowledge and learn more about styling.
 
 Features include:
