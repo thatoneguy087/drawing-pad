@@ -62,6 +62,35 @@ body {
   margin: 32px 32px 0 0;
   width: 50px;
   height: 50px;
+  border: 2px solid black;
+  border-radius: 4px;
+}
+
+.side-bar .color-options #normal {
+  background-color: #070600;
+}
+
+.side-bar .color-options #random {
+  background-color: red;
+  animation-name: random-color;
+  animation-duration: 5s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes random-color {
+  0% {background-color: red;}
+  25% {background-color: yellow}
+  50% {background-color: green}
+  75% {background-color: blue;}
+  100% {background-color: red;}
+}
+
+.side-bar .color-options #transparent {
+  background-color: #f7f7ff;
+}
+
+.active {
+  border: 3px solid #ea526f;
 }
 
 .grid {
