@@ -67,11 +67,7 @@ createGrid(defaultGridSize);
 
 //Event listener to draw when the the mouse is down either by click or by dragging
 grid.addEventListener('mousedown', e => {
-        if(color === 'random') {
-        e.target.style.backgroundColor = randomRGBColor();
-      } else {
-        e.target.style.backgroundColor = color;
-      }
+  draw(e);
   grid.addEventListener('mouseover', draw);
 });
 
