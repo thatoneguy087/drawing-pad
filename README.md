@@ -9,6 +9,6 @@ Features include:
  - Random color option
  - Resizable canvas (up to 100px)
 
-Check out the live example [here](https://thatoneguy087.github.io/etch-a-sketch-pad/)!
+Check out the live example [here](https://thatoneguy087.github.io/drawing-pad/)!
 
 Cheers!
