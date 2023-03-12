@@ -32,7 +32,11 @@ function enablePixels() {
   const pixels = [...document.querySelectorAll('.pixel')];
   pixels.forEach(pixel => {
     pixel.addEventListener('mouseover', () => {
-      pixel.style.backgroundColor = '#070600';
+      if(color === 'random') {
+        pixel.style.backgroundColor = randomRGBColor();
+      } else {
+        pixel.style.backgroundColor = color;
+      }
     });
   });
 }
@@ -54,8 +58,8 @@ let grid = document.querySelector('.grid');
 const gridSizeButton = document.querySelector('#grid-size');
 const clearGridButton = document.querySelector('#clear-grid');
 const colorOptions = document.querySelectorAll('.color-options button')
-console.log(colorOptions);
 let defaultGridSize = 16;
+let color = '#070600';
 
 createGrid(defaultGridSize);
 
@@ -65,6 +69,15 @@ colorOptions.forEach(option => {
       option.classList.remove('active');
     });
     option.classList.add('active');
+    if(option.id === 'normal'){
+      randomFlag = false;
+      color = '#070600';
+    } else if (option.id === 'transparent') {
+      randomFlag = false;
+      color = '';
+    } else if (option.id === 'random'){
+      color = 'random';
+    }
   });
 });
 //Add an event listener to pixels, waiting for a hover event
