@@ -43,6 +43,13 @@ function isInt(num) {
   return false;
 }
 
+function randomRGBColor() {
+  let r = Math.floor(Math.random() * 256);
+  let g = Math.floor(Math.random() * 256);
+  let b = Math.floor(Math.random() * 256);
+  return `rgb(${r}, ${g}, ${b})`
+}
+
 let grid = document.querySelector('.grid');
 const gridSizeButton = document.querySelector('#grid-size');
 const clearGridButton = document.querySelector('#clear-grid');
@@ -65,4 +72,3 @@ gridSizeButton.addEventListener('click', () => {
     alert('Grid must be a whole number between 1 and 100.');
   }
 });
-
