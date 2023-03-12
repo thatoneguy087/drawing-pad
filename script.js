@@ -26,6 +26,7 @@ function clearGrid() {
   pixels.forEach(pixel => pixel.style.backgroundColor = '');
 }
 
+//draw on click and drag
 function draw(e) {
   const pixels = document.querySelectorAll('.pixel');
   pixels.forEach(pixel => {
@@ -64,7 +65,7 @@ let defaultGridSize = 16;
 let color = '#070600';
 createGrid(defaultGridSize);
 
-
+//Event listener to draw when the the mouse is down either by click or by dragging
 grid.addEventListener('mousedown', e => {
         if(color === 'random') {
         e.target.style.backgroundColor = randomRGBColor();
@@ -73,6 +74,8 @@ grid.addEventListener('mousedown', e => {
       }
   grid.addEventListener('mouseover', draw);
 });
+
+//Event listener to stop the stop drawing when the mouse button is released
 window.addEventListener('mouseup', () => {
   grid.removeEventListener('mouseover', draw);
 });
