@@ -28,6 +28,8 @@ body {
   flex: 1;
   justify-content: space-between;
 }
+
+/* Side bar reset and clear buttons */
 .side-bar .reset-buttons {
   display: flex;
   flex-direction: column;
@@ -50,11 +52,12 @@ body {
   background-color: #dcdce3;
 }
 
+/* Side bar color option buttons */
+
 .side-bar .color-options {
   flex: 1;
   display: flex;
   flex-direction: column;
-  /* justify-content: center; */
   align-items: flex-end;
 }
 
@@ -97,6 +100,7 @@ body {
   border-radius: 4px;
 }
 
+/* grid layout and size */
 .grid {
   box-sizing: content-box;
   height: 600px;
@@ -106,10 +110,7 @@ body {
   flex-wrap: wrap;
 }
 
+/* pixel border */
 .pixel{
   border: 1px solid #07060011;
-}
-
-.colored {
-  background-color: #070600;
 }
