@@ -26,13 +26,13 @@ function resetGrid() {
 }
 function clearGrid() {
   const pixels = [...document.querySelectorAll('.pixel')];
-  pixels.forEach(pixel => pixel.classList.remove('colored'));
+  pixels.forEach(pixel => pixel.style.backgroundColor = '');
 }
 function enablePixels() {
   const pixels = [...document.querySelectorAll('.pixel')];
   pixels.forEach(pixel => {
     pixel.addEventListener('mouseover', () => {
-      pixel.classList.add('colored');
+      pixel.style.backgroundColor = '#070600';
     });
   });
 }
